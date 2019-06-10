@@ -1,27 +1,29 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const expressGraphQL = require("express-graphql");
 const mongoose = require("mongoose");
-const {
-  GraphQLID,
-  GraphQLString,
-  GraphQLList,
-  GraphQLNonNull,
-  GraphQLObjectType,
-  GraphQLSchema
-} = require("graphql");
+const schema = require("../graphql/schema");
+
+const PORT = process.env.PORT || 3001;
+const { mongoURI: db } = process.env;
 
 const app = express();
 
-app.use(cors());
+mongoose.connect(
+  db,
+  { useNewUrlParser: true }
+);
 
+app.use(cors());
 app.use(
   "/graphql",
   expressGraphQL({
+    schema,
     graphiql: true
   })
 );
 
-app.listen(3001, () => {
-  console.log("Listening at http://localhost:3001");
+app.listen(PORT, () => {
+  console.log(`Listening at http://localhost:${PORT}`);
 });
