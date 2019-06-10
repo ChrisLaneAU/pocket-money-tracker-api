@@ -4,14 +4,15 @@ const cors = require("cors");
 const expressGraphQL = require("express-graphql");
 const mongoose = require("mongoose");
 const schema = require("../graphql/schema");
+const keys = require("../config/keys/keys");
 
 const PORT = process.env.PORT || 3001;
-const { mongoURI: db } = process.env;
+// const { mongoURI: db } = process.env;
 
 const app = express();
 
 mongoose.connect(
-  db,
+  keys.mongoURI,
   { useNewUrlParser: true }
 );
 
