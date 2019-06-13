@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const expressGraphQL = require("express-graphql");
@@ -7,7 +6,6 @@ const schema = require("../graphql/schema");
 const keys = require("../config/keys/keys");
 
 const PORT = process.env.PORT || 3001;
-// const { mongoURI: db } = process.env;
 
 const app = express();
 
