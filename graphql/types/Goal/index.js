@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLString } = require("graphql");
+const { GraphQLObjectType, GraphQLString, GraphQLInt } = require("graphql");
 
 const GoalType = new GraphQLObjectType({
   name: "Goal",
@@ -7,8 +7,8 @@ const GoalType = new GraphQLObjectType({
     name: { type: GraphQLString },
     image: { type: GraphQLString },
     child: { type: GraphQLString },
-    price: { type: GraphQLString },
-    progress: { type: GraphQLString }
+    price: { type: GraphQLInt },
+    progress: { type: GraphQLInt }
   }
 });
 
