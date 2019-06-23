@@ -2,6 +2,7 @@ const {
   GraphQLList,
   GraphQLNonNull,
   GraphQLString,
+  GraphQLInt,
   GraphQLID
 } = require("graphql");
 const { GoalType } = require("../../types");
@@ -31,8 +32,8 @@ const addGoal = {
     name: { type: GraphQLNonNull(GraphQLString) },
     image: { type: GraphQLNonNull(GraphQLString) },
     child: { type: GraphQLNonNull(GraphQLString) },
-    price: { type: GraphQLNonNull(GraphQLString) },
-    progress: { type: GraphQLNonNull(GraphQLString) }
+    price: { type: GraphQLNonNull(GraphQLInt) },
+    progress: { type: GraphQLNonNull(GraphQLInt) }
   },
   resolve: (root, args, context, info) => {
     const goal = new GoalModel(args);
@@ -47,8 +48,8 @@ const updateGoal = {
     name: { type: GraphQLNonNull(GraphQLString) },
     image: { type: GraphQLNonNull(GraphQLString) },
     child: { type: GraphQLNonNull(GraphQLString) },
-    price: { type: GraphQLNonNull(GraphQLString) },
-    progress: { type: GraphQLNonNull(GraphQLString) }
+    price: { type: GraphQLNonNull(GraphQLInt) },
+    progress: { type: GraphQLNonNull(GraphQLInt) }
   },
   resolve: async (root, args) => {
     const updatedGoal = await GoalModel.findOneAndUpdate(args.id, args);
