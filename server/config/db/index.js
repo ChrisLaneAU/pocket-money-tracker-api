@@ -1,13 +1,13 @@
 const GoalModel = require("../../models/Goal");
-// import User from "../../models/User";
-// import Chore from "../../models/Chore";
-// import Child from "../../models/Child";
+// const UserModel = require("../../models/User");
+const ChoreModel = require("../../models/Chore");
+// const ChildModel = require("../../models/Child");
 
 const models = {
-  GoalModel
-  // User,
-  // Chore,
-  // Child
+  GoalModel,
+  // UserModel,
+  ChoreModel
+  // ChildModel
 };
 
 module.exports = models;

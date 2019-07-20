@@ -1,13 +1,22 @@
 const { GraphQLSchema, GraphQLObjectType } = require("graphql");
 
 const { goals, goal, addGoal, updateGoal, deleteGoal } = require("./Goal");
+const {
+  chores,
+  chore,
+  addChore,
+  updateChore,
+  deleteChore
+} = require("./Chore");
 
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: "Query",
     fields: {
       goals,
-      goal
+      goal,
+      chores,
+      chore
     }
   }),
   mutation: new GraphQLObjectType({
@@ -15,7 +24,10 @@ const schema = new GraphQLSchema({
     fields: {
       addGoal,
       updateGoal,
-      deleteGoal
+      deleteGoal,
+      addChore,
+      updateChore,
+      deleteChore
     }
   })
 });
