@@ -8,6 +8,7 @@ const {
   updateChore,
   deleteChore
 } = require("./Chore");
+const { users, user, addUser, updateUser, deleteUser } = require("./User");
 
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
@@ -16,7 +17,9 @@ const schema = new GraphQLSchema({
       goals,
       goal,
       chores,
-      chore
+      chore,
+      users,
+      user
     }
   }),
   mutation: new GraphQLObjectType({
@@ -27,7 +30,10 @@ const schema = new GraphQLSchema({
       deleteGoal,
       addChore,
       updateChore,
-      deleteChore
+      deleteChore,
+      addUser,
+      updateUser,
+      deleteUser
     }
   })
 });
